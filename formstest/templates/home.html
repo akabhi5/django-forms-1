@@ -1,0 +1,16 @@
+<h1>hello world</h1>
+<hr>
+
+{% for person in persons %}
+  <p>{{ person.name }} | {{ person.age }}</p>
+{% empty %}
+  <h3>no data available</h3>
+{% endfor %}
+
+<form action="{% url 'home' %}" method="post">
+  {% csrf_token %}
+  Name: <input type="text" name="name" value=""><br><br>
+  Age: <input type="number" name="age" value=""><br><br>
+  Address: <input type="text" name="address" value=""><br><br>
+  <input type="submit" name="submit" value="Submit">
+</form>
